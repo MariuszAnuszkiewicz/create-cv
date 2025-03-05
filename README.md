@@ -13,9 +13,11 @@ composer require "ext-gd:*" --ignore-platform-reqs </br>
 
 config/app.php </br>
 routes/web.php </br>
-App/Http/Controllers/PDFController.php </br>
-resources/views/pdf/cv/call_center.blade.php </br>
-public/pictures/cv/picture.jpg </br>
+app/Http/Controllers/PDFController.php </br>
+app/Services/FileService.php </br>
+resources/views/pdf/.* </br>
+resources/views/pdf/cv/.* </br>
+public/pictures/cv/.* (jpeg,png,jpg,gif) </br>
 public/styles/pdf.css </br>
 
 ## run application
