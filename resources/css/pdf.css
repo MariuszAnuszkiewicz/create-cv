@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@page {
+    margin: 0px 0px 0px 0px !important;
+}
+html, body {
+    font-family: Verdana, Tahoma, DejaVu Sans, sans-serif;
+}
+h2, h3 {
+    color: #330703
+}
+header {
+    background-color: white;
+    margin: 0;
+}
+#phone::before {
+    content: "\260E";
+    font-weight: normal;
+    text-decoration: inherit;
+    padding: 0px 5px 0px 0px;
+    font-size: 18px;
+}
+.font-bold {
+    font-weight: bold;
+}
+.font-slim {
+    font-weight: normal;
+}
+.text-white {
+    color: white;
+}
+.text-orange {
+    color: #ed5b2c;
+}
+.text-dark {
+    color: #330703;
+}
+.list-symbol > ul > li:before {
+    padding: 5px 5px 5px 5px;
+    color: darkgreen;
+    content: "\2611";
+    font-size: 1.1rem;
+}
+.list-none > ul > li {
+    list-style-type: none;
+}
+.span-header {
+    color: #674b31;
+}
+.span-header > p {
+    color: #674b31;
+    font-weight: bold;
+}
+.ptn {
+    width: 100%;
+    text-align: center;
+    background-color: #674b31;
+}
+.picture {
+    position: absolute;
+    top: -0.5%;
+    left: 80%;
+    display: block;
+    width: auto;
+    height: auto;
+}
+.personal-data {
+    position: relative;
+    left: 0%;
+    display: inline-block;
+    width: 100%;
+    color: #674b31;
+    padding: 5px 25px 5px 25px;
+    background-color: #eeeeee;
+    border: 1px solid #aaaaaa;
+}
+.content {
+    background-color: white;
+}
+.title-center {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+.professional-experience {
+    position: relative;
+    left: 0%;
+    display: table;
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px 25px 5px 25px;
+}
+.skills {
+    position: relative;
+    left: 0%;
+    display: table;
+    width: 100%;
+    margin-top: 20px;
+    padding: 5px 25px 5px 25px;
+}
+.education {
+    position: relative;
+    left: 0%;
+    display: table;
+    width: 100%;
+    margin-top: 20px;
+    padding: 5px 25px 5px 25px;
+}
+.interests {
+    position: relative;
+    left: 0%;
+    display: table;
+    width: 100%;
+    margin-top: 20px;
+    padding: 5px 25px 5px 25px;
+}
+.footer-container {
+    display: block;
+}
+.footer {
+    position: relative;
+    left: 0%;
+    margin-top: 60%;
+    width: 95%;
+    text-align: justify;
+    padding: 5px 5px 5px 15px;
+    font-style: italic;
+    font-size: 10px;
+}
