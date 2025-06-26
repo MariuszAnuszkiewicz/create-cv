@@ -102,13 +102,9 @@
                             />
                         </td>
                         <td>
-                            <input
-                                type="text"
-                                name="inputs[0][experience][0]"
-                                value="{{ old('experience') }}"
-                                placeholder="enter experience"
+                            <textarea
                                 class="form-control"
-                            />
+                                name="inputs[0][experience][]">enter experience</textarea>
                         </td>
                         <td class="text-center">
                             <button type="button" id="add_experience" class="btn btn-success">
@@ -190,13 +186,10 @@
             <td></td>
             <td></td>
             <td>
-                <input
-                   type="text"
-                   name="inputs[`+i+`][experience][]"
-                   value="{{ old('experience') }}"
-                   placeholder="enter experience"
+                <textarea
                    class="form-control"
-                />
+                   name="inputs[`+i+`][experience][]"
+                   placeholder="enter experience" />
             </td>
             <td class="text-center">
                 <button type="button" id="remove_table_row_experience" class="btn btn-danger">
@@ -269,13 +262,10 @@
                     />
                 </td>
                 <td>
-                    <input
-                        type="text"
-                        name="inputs[`+i+`][experience][]"
-                        value="{{ old('experience') }}"
-                        placeholder="enter experience"
-                        class="form-control"
-                    />
+                   <textarea
+                      class="form-control"
+                      name="inputs[`+i+`][experience][]"
+                      placeholder="enter experience" />
                 </td>
                 <td class="text-center">
                      <button type="button" id="add_experience_next" class="btn btn-success">
