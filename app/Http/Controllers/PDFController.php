@@ -16,6 +16,7 @@ class PDFController extends Controller
     public function generatePDF(Request $request, FileService $fileService)
     {
         $data = $request->only(['inputs']);
+
         $sourcePath = public_path('pictures/cv/');
 
         $fileService->uploadFile($request, $sourcePath);
@@ -26,7 +27,10 @@ class PDFController extends Controller
         };
         $addPictureToData($data);
 
+        $data['inputs'][0]['agreement'] = file_get_contents(public_path('agreement/pl/agreement.txt'), false);
+
         $pdf = PDF::loadView('pdf.cv.create', $data);
+        $pdf->setPaper('a4', 'P');
         return $pdf->stream();
     }
 }

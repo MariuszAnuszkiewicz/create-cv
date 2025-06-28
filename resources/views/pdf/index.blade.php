@@ -138,7 +138,6 @@
                             <input
                                 type="text"
                                 name="inputs[0][skill]"
-                                value="{{ old('skill') }}"
                                 placeholder="enter skill"
                                 class="form-control"
                             />
@@ -288,13 +287,10 @@
         $('#table').append(
             `<tr>
                 <td>
-                    <input
-                       type="text"
-                       name="inputs[`+q+`][skill]"
-                       value="{{ old('skill') }}"
-                       placeholder="enter skill"
-                       class="form-control"
-                    />
+                    <textarea
+                      class="form-control"
+                      name="inputs[`+q+`][skill]"
+                      placeholder="enter experience" />
                 </td>
                 <td>
                     <input
