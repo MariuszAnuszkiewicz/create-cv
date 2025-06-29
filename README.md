@@ -27,7 +27,7 @@ next enter appropriate path where is source application, and then run command: <
 next run other window terminal (cmd) this command (this command should start the server): <b>php artisan serve</b></br>
 Now enjoy it.
 
-##start application
+## start application
 
 open this url in a browser:</br>
 http://127.0.0.1:8000/create-pdf

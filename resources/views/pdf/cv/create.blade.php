@@ -11,31 +11,35 @@
     <div class="title-center">
         <h2>CV</h2>
     </div>
-    @if (isset($inputs[0]['name']) or isset($inputs[0]['phone']) or isset($inputs[0]['email']) or isset($inputs[0]['living_place']))
-        @foreach ($inputs as $key => $input)
-        <div class="ptn">
-            <h2 class="text-white">{{ $input['name'] }}</h2>
-        </div>
-        <div class="personal-data">
-            <div class="font-bold">
-               <span id="phone" class="font-slim"><span class="text-dark">{{ $input['phone'] }}</span></span>
-            </div>
-            <div class="font-bold">E-mail: <span class="font-slim text-dark">{{ $input['email'] }}</span></div>
-            <div class="font-bold">Living Place: <span class="font-slim text-dark">{{ $input['living_place'] }}</span></div>
-            <span class="picture">
-               <img src="{{ public_path('pictures/cv/' . $input['file'][$key]) }}" width="75" height="97" alt="">
-            </span>
-        </div>
+        @foreach ($inputs ?? [] as $key => $input)
+            @if (isset($input['name']) or isset($input['phone']) or isset($input['email']) or isset($input['living_place']))
+                <div class="ptn">
+                   <h2 class="text-white">{{ $input['name'] }}</h2>
+                </div>
+                <div class="personal-data">
+                    <div class="font-bold">
+                       <span id="phone" class="font-slim"><span class="text-dark">{{ $input['phone'] }}</span></span>
+                    </div>
+                    <div class="font-bold">
+                        E-mail: <span class="font-slim text-dark">{{ $input['email'] }}</span>
+                    </div>
+                    <div class="font-bold">{{ isset($input['set_pl']) ? 'Miejsce Zamieszkania: ' : 'Living Place: ' }}
+                        <span class="font-slim text-dark">{{ $input['living_place'] }}</span>
+                    </div>
+                    <span class="picture">
+                       <img src="{{ public_path('pictures/cv/' . $input['file'][$key]) }}" width="75" height="97" alt="">
+                    </span>
+                </div>
+            @endif
        @endforeach
-    @endif
 </header>
 <body>
 <div class="content">
     <div class="professional-experience">
         <div class="list-symbol list-none">
-            <h3>Experience:</h3>
-            @foreach ($inputs as $input)
+            @foreach ($inputs ?? [] as $input)
                 @if (isset($input['from']) or isset($input['to']) or isset($input['position']))
+                    <h3>{{ isset($input['set_pl']) ? 'Doświadczenie Zawodowe' : 'Experience' }}</h3>
                     <span class="span-header">
                         <p>
                            {{ date_format(date_create($input['from']), "F Y") }}
@@ -55,7 +59,7 @@
                         <ul>
                             @if ($input['experience'] && $input['experience'] !== null)
                                 @foreach ($input['experience'] as $experience)
-                                   <li>{{ htmlspecialchars($experience) }}</li>
+                                   <li>{{ $experience ?? '' }}</li>
                                 @endforeach
                             @endif
                         </ul>
@@ -66,11 +70,13 @@
     </div>
     <div class="skills">
         <div class="list-symbol list-none">
-            @if (isset($inputs[0]['skill']) and $inputs[0]['skill'] !== null)
-            <h3>Skills:</h3>
+            @if (isset($inputs[0]['skill']) and $inputs[0]['skill'] !== null && isset($inputs[0]['set_pl']))
+            <h3>{{ isset($inputs[0]['set_pl']) ? 'Umiejętności' : 'Skills' }}</h3>
                 <ul>
                     @foreach ($inputs as $input)
-                        <li>{{ htmlspecialchars($input['skill']) }}</li>
+                        @if(isset($input['skill']) and $input['skill'] !== null)
+                           <li>{{ $input['skill'] ?? '' }}</li>
+                        @endif
                     @endforeach
                 </ul>
             @endif
@@ -80,10 +86,12 @@
     <div class="education">
         <div class="list-symbol list-none">
             @if (isset($inputs[0]['education']) and $inputs[0]['education'] !== null)
-                <h3>Education:</h3>
+                <h3>{{ isset($inputs[0]['set_pl']) ? 'Edukacja' : 'Education' }}</h3>
                 <ul>
                     @foreach ($inputs as $input)
-                        <li>{{ htmlspecialchars($input['education']) }}</li>
+                        @if(isset($input['education']) and $input['education'] !== null)
+                           <li>{{ $input['education'] ?? '' }}</li>
+                        @endif
                     @endforeach
                 </ul>
             @endif
@@ -93,10 +101,12 @@
     <div class="interests">
         <div class="list-symbol list-none">
             @if (isset($inputs[0]['interest']) and $inputs[0]['interest'] !== null)
-                <h3>Interest:</h3>
+                <h3>{{ isset($inputs[0]['set_pl']) ? 'Zainteresowania' : 'Interest' }}</h3>
                 <ul>
                     @foreach ($inputs as $input)
-                        <li>{{ htmlspecialchars($input['interest']) }}</li>
+                        @if(isset($input['interest']) and $input['interest'] !== null)
+                           <li>{{ $input['interest'] ?? '' }}</li>
+                        @endif
                     @endforeach
                 </ul>
             @endif
@@ -109,7 +119,7 @@
         <p class="footer">
             @if (isset($inputs[0]['agreement']) and $inputs[0]['agreement'] !== null)
                 @foreach ($inputs as $input)
-                   {{ htmlspecialchars($input['agreement']) }}
+                   {{ $input['agreement'] ?? '' }}
                 @endforeach
             @endif
         </p>

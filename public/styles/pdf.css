@@ -47,6 +47,7 @@ header {
     list-style-type: none;
     padding-bottom: 15px;
 }
+
 .span-header {
     color: #674b31;
 }
@@ -73,7 +74,7 @@ header {
     display: table;
     width: 100%;
     color: #674b31;
-    padding: 5px 25px 5px 25px;
+    padding: 5px 10px 5px 10px;
     background-color: #eeeeee;
     border: 1px solid #aaaaaa;
 }
@@ -87,7 +88,7 @@ header {
     text-align: center;
 }
 .professional-experience {
-    margin: 10px 10px 10px 10px;
+    margin: 5px 10px 5px 10px;
     width: auto;
 }
 .skills {
@@ -96,7 +97,7 @@ header {
     display: table;
     width: 100%;
     margin-top: 10px;
-    padding: 5px 25px 5px 25px;
+    padding: 5px 10px 5px 10px;
 }
 .education {
 
@@ -104,26 +105,25 @@ header {
     display: table;
     width: 100%;
     margin-top: 10px;
-    padding: 5px 25px 5px 25px;
+    padding: 5px 10px 5px 10px;
 }
 .interests {
     left: 0%;
     display: table;
     width: 100%;
     margin-top: 10px;
-    padding: 5px 25px 45px 25px;
+    padding: 5px 10px 5px 10px;
 }
 .footer-container {
-    display: table;
-}
-.footer {
     position: absolute;
     display: table;
+    bottom: 85px;
     left: 5px;
-    bottom: 5rem;
+}
+.footer {
     width: 95%;
     text-align: justify;
-    padding: 5px 5px 5px 15px;
+    padding: 5px 10px 25px 10px;
     font-style: italic;
     font-size: 10px;
 }

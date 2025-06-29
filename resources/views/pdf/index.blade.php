@@ -53,6 +53,13 @@
                         </td>
                     </tr>
                     <div class="col-md-4 mb-3">
+                        <input type="radio" id="radio_pl" name="inputs[0][set_pl]" value="pl">
+                        <label for="pl">PL</label><br>
+
+                        <input type="radio" id="radio_en" name="inputs[0][set_en]" value="en">
+                        <label for="en">EN</label><br>
+                    </div>
+                    <div class="col-md-4 mb-3">
                         <label class="bg-white">Upload Images (Max:20 images only)</label>
                         <input type="file" multiple="multiple" name="image[]" class="form-control" />
                     </div>
@@ -135,12 +142,15 @@
                     </tr>
                     <tr>
                         <td>
-                            <input
-                                type="text"
-                                name="inputs[0][skill]"
-                                placeholder="enter skill"
+{{--                            <input--}}
+{{--                                type="text"--}}
+{{--                                name="inputs[0][skill][]"--}}
+{{--                                placeholder="enter skill"--}}
+{{--                                class="form-control"--}}
+{{--                            />--}}
+                            <textarea
                                 class="form-control"
-                            />
+                                name="inputs[0][skill]">enter skill</textarea>
                         </td>
                         <td>
                             <input
@@ -322,5 +332,4 @@
     $(document).on('click', '#remove_table_row', function() {
         $(this).parents('tr').remove();
     });
-
 </script>

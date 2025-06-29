@@ -17,17 +17,22 @@ class PDFController extends Controller
     {
         $data = $request->only(['inputs']);
 
-        $sourcePath = public_path('pictures/cv/');
+        $sourcePictures = public_path('pictures/cv/');
 
-        $fileService->uploadFile($request, $sourcePath);
+        $fileService->uploadFile($request, $sourcePictures);
 
-        $addPictureToData = function(&$data) use ($sourcePath, $fileService) {
-            $getLastFile = $fileService->getLastFile($sourcePath);
+        $addPictureToData = function(&$data) use ($sourcePictures, $fileService) {
+            $getLastFile = $fileService->getLastFile($sourcePictures);
             $data['inputs'][0]['file'][] = $getLastFile;
         };
+
         $addPictureToData($data);
 
-        $data['inputs'][0]['agreement'] = file_get_contents(public_path('agreement/pl/agreement.txt'), false);
+        if (isset($data['inputs'][0]['set_pl'])) {
+            $data['inputs'][0]['agreement'] = file_get_contents(public_path('agreement/pl/agreement.txt'), false);
+        } else {
+            $data['inputs'][0]['agreement'] = file_get_contents(public_path('agreement/en/agreement.txt'), false);
+        }
 
         $pdf = PDF::loadView('pdf.cv.create', $data);
         $pdf->setPaper('a4', 'P');
